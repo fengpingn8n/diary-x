@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@plugin "tailwindcss-animate";
+
+@layer base {
+  :root {
+    /* "Light" mode is actually just a lighter version of tech, but we prioritize Dark */
+    --background: 220 15% 10%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 15% 13%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 15% 13%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 190 100% 50%;
+    /* Neon Cyan */
+    --primary-foreground: 220 15% 10%;
+
+    --secondary: 260 100% 60%;
+    /* Neon Purple */
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 220 15% 25%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 80% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 190 100% 50%;
+
+    --radius: 0.25rem;
+    /* Sharper corners for tech feel */
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    /* Deep Space Black */
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 180 100% 50%;
+    /* Cyan 500 equivalent but brighter */
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 270 100% 60%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 10% 12%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 15%;
+    --ring: 180 100% 50%;
+  }
+
+  /* Scanline Overlay Effect */
+  /* We can add this to body::after in the future if desired */
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-neon-blue/30 selection:text-neon-blue;
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(0, 243, 255, 0.05) 0%, transparent 50%),
+      linear-gradient(rgba(0, 0, 0, 0.01) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 4px;
+    /* subtle scanline bg */
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-800 rounded-full hover:bg-neon-blue/50 transition-colors;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/60 backdrop-blur-md border border-white/10 shadow-lg;
+  }
+
+  .tech-border {
+    @apply border border-neon-blue/30 hover:border-neon-blue/60 transition-colors duration-300;
+  }
+
+  .neon-text {
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.5);
+  }
+
+  .neon-text-purple {
+    text-shadow: 0 0 5px rgba(191, 0, 255, 0.5);
+  }
+}
