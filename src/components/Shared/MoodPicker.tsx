@@ -27,7 +27,10 @@ export function MoodPicker({ selectedMood, onSelect }: MoodPickerProps) {
                 title="INPUT_EMOTIONAL_STATE"
             >
                 {activeMood ? (
-                    <span className="font-mono text-xs font-bold tracking-wider">{activeMood.label}</span>
+                    <span className="font-mono text-xs font-bold tracking-wider flex items-center gap-1.5">
+                        <activeMood.icon className="h-3 w-3" />
+                        {activeMood.label}
+                    </span>
                 ) : (
                     <>
                         <Activity className="h-4 w-4" />
@@ -56,12 +59,13 @@ export function MoodPicker({ selectedMood, onSelect }: MoodPickerProps) {
                                         setIsOpen(false);
                                     }}
                                     className={cn(
-                                        "w-full text-left px-3 py-1.5 text-xs font-mono border border-transparent transition-all",
+                                        "w-full text-left px-3 py-1.5 text-xs font-mono border border-transparent transition-all flex items-center gap-2",
                                         mood.color,
                                         selectedMood === mood.key ? "bg-white/5 border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)]" : "opacity-70 hover:opacity-100"
                                     )}
                                 >
-                                    [{mood.label}]
+                                    <mood.icon className="h-3 w-3" />
+                                    <span>[{mood.label}]</span>
                                 </button>
                             ))}
                         </div>

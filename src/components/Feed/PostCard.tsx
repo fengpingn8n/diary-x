@@ -50,7 +50,8 @@ export function PostCard({ post }: PostCardProps) {
                             </time>
 
                             {moodInfo && (
-                                <span className={cn("ml-2 px-2 py-0.5 rounded-[2px] text-[10px] font-mono border uppercase tracking-wider", moodInfo.color)}>
+                                <span className={cn("ml-2 px-2 py-0.5 rounded-[2px] text-[10px] font-mono border uppercase tracking-wider flex items-center gap-1.5", moodInfo.color)}>
+                                    <moodInfo.icon className="h-3 w-3" />
                                     {moodInfo.label}
                                 </span>
                             )}
