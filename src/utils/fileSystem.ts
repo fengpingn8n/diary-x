@@ -14,7 +14,7 @@ const HANDLE_KEY = 'save_dir_handle';
 export async function selectSaveFolder(): Promise<FileSystemDirectoryHandle | null> {
     try {
         if (!('showDirectoryPicker' in window)) {
-            alert('您的浏览器不支持文件夹访问功能。');
+            alert('注意：您的设备（如 iPhone/iPad）不支持直接访问文件夹。\n\n别担心！您的日记会自动保存在这个浏览器的内部存储中。\n\n如需备份，请使用“导出数据”功能。');
             return null;
         }
 

@@ -17,7 +17,7 @@ export function Sidebar() {
 
                 {/* Navigation */}
                 <nav className="flex w-full flex-row justify-around gap-2 md:flex-col md:justify-start md:space-y-3">
-                    <NavItem to="/" icon={<Home />} label="指挥中心" />
+                    <NavItem to="/" icon={<Home />} label="私人日记" />
                     <NavItem to="/calendar" icon={<Calendar />} label="时间轴" />
                     <NavItem to="/memories" icon={<History />} label="记忆回廊" />
                     <div className="hidden md:block md:flex-1" /> {/* Spacer */}
