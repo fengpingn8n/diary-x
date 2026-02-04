@@ -45,7 +45,7 @@ export function MoodPicker({ selectedMood, onSelect }: MoodPickerProps) {
                         className="fixed inset-0 z-10"
                         onClick={() => setIsOpen(false)}
                     />
-                    <div className="absolute top-full left-0 z-20 mt-2 w-40 glass-panel border-neon-blue/20 p-2 animate-in fade-in zoom-in-95 duration-200">
+                    <div className="absolute top-full left-0 z-50 mt-2 w-40 glass-panel border-neon-blue/20 p-2 animate-in fade-in zoom-in-95 duration-200">
                         <div className="text-[10px] text-neon-blue/50 font-mono mb-2 uppercase tracking-widest px-1 flex justify-between items-center">
                             <span>SELECT_STATE</span>
                             <X className="h-3 w-3 cursor-pointer hover:text-white" onClick={(e) => { e.stopPropagation(); setIsOpen(false); }} />

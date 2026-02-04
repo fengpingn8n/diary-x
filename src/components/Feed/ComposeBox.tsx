@@ -37,7 +37,7 @@ export function ComposeBox() {
     };
 
     return (
-        <div className="border-b border-white/5 bg-background/50 backdrop-blur-md p-6 relative group">
+        <div className="border-b border-white/5 bg-background/50 backdrop-blur-md p-6 relative group z-50">
             {/* Tech Decoration - Isolated clipping */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-0 right-0 p-2 opacity-20">
