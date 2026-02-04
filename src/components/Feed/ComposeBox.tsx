@@ -37,10 +37,12 @@ export function ComposeBox() {
     };
 
     return (
-        <div className="border-b border-white/5 bg-background/50 backdrop-blur-md p-6 relative overflow-hidden">
-            {/* Tech Decoration */}
-            <div className="absolute top-0 right-0 p-2 opacity-20">
-                <Terminal className="h-24 w-24 text-neon-blue" />
+        <div className="border-b border-white/5 bg-background/50 backdrop-blur-md p-6 relative group">
+            {/* Tech Decoration - Isolated clipping */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-0 right-0 p-2 opacity-20">
+                    <Terminal className="h-24 w-24 text-neon-blue" />
+                </div>
             </div>
 
             <div className="flex gap-4 relative z-10">
