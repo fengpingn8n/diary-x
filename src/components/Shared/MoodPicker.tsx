@@ -2,14 +2,7 @@ import { useState } from 'react';
 import { Activity, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
-// Consistent with PostCard moodMap
-const MOOD_OPTIONS = [
-    { key: 'happy', label: 'JOY', color: 'text-neon-green border-neon-green/50 hover:bg-neon-green/10' },
-    { key: 'energetic', label: 'ENERGY', color: 'text-yellow-400 border-yellow-400/50 hover:bg-yellow-400/10' },
-    { key: 'calm', label: 'CALM', color: 'text-cyan-300 border-cyan-300/50 hover:bg-cyan-300/10' },
-    { key: 'neutral', label: 'NEUTRAL', color: 'text-gray-400 border-gray-400/50 hover:bg-gray-400/10' },
-    { key: 'sad', label: 'SORROW', color: 'text-blue-400 border-blue-400/50 hover:bg-blue-400/10' },
-];
+import { MOOD_OPTIONS } from '../../constants/moods';
 
 interface MoodPickerProps {
     selectedMood?: string;

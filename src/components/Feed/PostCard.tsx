@@ -6,14 +6,7 @@ import type { Post } from '../../db';
 import { usePosts } from '../../hooks/usePosts';
 import { cn } from '../../lib/utils';
 
-// Map mood to tech labels/colors
-const moodMap: Record<string, { label: string, color: string }> = {
-    happy: { label: 'JOY', color: 'text-neon-green border-neon-green/30' },
-    sad: { label: 'SORROW', color: 'text-blue-400 border-blue-400/30' },
-    energetic: { label: 'ENERGY', color: 'text-yellow-400 border-yellow-400/30' },
-    calm: { label: 'CALM', color: 'text-cyan-300 border-cyan-300/30' },
-    neutral: { label: 'NEUTRAL', color: 'text-gray-400 border-gray-400/30' },
-};
+import { MOOD_MAP } from '../../constants/moods';
 
 interface PostCardProps {
     post: Post;
@@ -24,7 +17,7 @@ export function PostCard({ post }: PostCardProps) {
     const [showMenu, setShowMenu] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
-    const moodInfo = post.mood ? moodMap[post.mood] : null;
+    const moodInfo = post.mood ? MOOD_MAP[post.mood] : null;
 
     return (
         <article
