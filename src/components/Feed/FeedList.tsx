@@ -1,8 +1,12 @@
 import { usePosts } from '../../hooks/usePosts';
 import { PostCard } from './PostCard';
 
+import { useSearchParams } from 'react-router-dom';
+
 export function FeedList() {
-    const { posts, loadMore, hasMore } = usePosts();
+    const [searchParams] = useSearchParams();
+    const searchQuery = searchParams.get('q') || undefined;
+    const { posts, loadMore, hasMore } = usePosts(searchQuery);
 
     if (!posts) {
         return (

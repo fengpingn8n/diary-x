@@ -3,12 +3,19 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db, type Post } from '../db';
 import { format } from 'date-fns';
 
-export function usePosts() {
+export function usePosts(searchQuery?: string) {
     const [limit, setLimit] = useState(20);
 
     const posts = useLiveQuery(
-        () => db.posts.orderBy('createdAt').reverse().limit(limit).toArray(),
-        [limit]
+        async () => {
+            if (searchQuery) {
+                // Client side filtering for search
+                const all = await db.posts.orderBy('createdAt').reverse().toArray();
+                return all.filter(p => p.content.toLowerCase().includes(searchQuery.toLowerCase()));
+            }
+            return db.posts.orderBy('createdAt').reverse().limit(limit).toArray();
+        },
+        [limit, searchQuery]
     );
 
     const loadMore = () => setLimit(prev => prev + 20);
